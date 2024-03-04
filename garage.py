@@ -1,37 +1,11 @@
-class Car:
-    def __init__(self, license_plate):
-        self.license_plate = license_plate
-        pass  # Initialize Car properties
-
-class Spot:
-    def __init__(self, spot_number):
-        self.spot_number = spot_number
-        pass  # Initialize Spot properties
-
-    def park_car(self, car):
-        self.car = car
-        pass  # Logic to park a car in the spot
-
-    def remove_car(self):                                                   #dont touch this yet. 
-        pass  # Logic to remove a car from the spot
-
-class Ticket:
-    def __init__(self, car, spot):
-        self.car = car
-        self.spot = spot
-        pass  # Initialize Ticket properties
-
 class Garage:
-    def __init__(self, tickets=[], parking_spaces = [], current_Ticket = {'paid': False}, user_choice = []):
+    def __init__(self, tickets=[], parking_spaces = [], current_Ticket = {'paid': False}, user_choice = []):  
         self.user_choice = user_choice
         self.tickets = tickets 
-        self.parking_spaces = parking_spaces
+        self.parking_spaces = parking_spaces                                     #Adrian, Buhay, Robin collective effort
         self.current_Ticket = current_Ticket
-        #self.capacity = capacity
-        pass  # Initialize Garage properties
-        #test
 
-    def take_Ticket(self):        
+    def take_Ticket(self):                                                       #Adrian + Buhay = Navigator!! Robin was driver!
         while True:
             ticket_amount = 10
             parking_spaces = 10
@@ -50,7 +24,7 @@ class Garage:
             
 
             
-    def pay_4_parking(self):
+    def pay_4_parking(self):                                                             #Robin
         while True:
             user_list = []
             user_amount = input('How much are you paying for this ticket?')
@@ -61,9 +35,8 @@ class Garage:
                 print(f'Your ticket has been paid! You only have 15 minutes!')
                 self.current_Ticket['paid']=True
                 break
-            pass
 
-    def leave_garage(self):
+    def leave_garage(self):                                                                #Buhay
         current_Tickets = 9
         current_Spaces = 9
         if self.current_Ticket['paid']==True:
@@ -75,13 +48,7 @@ class Garage:
             self.parking_spaces = [current_Spaces +1]
             print(f'{self.tickets} tickets and {self.parking_spaces} parking spaces')
 
-    def park_car(self, car):
-        pass  # Logic to park a car in the garage
-
-    def retrieve_car(self, ticket):
-        pass  # Logic to retrieve a car from the garage
-
-    def run_Garage(self):
+    def run_Garage(self):                                                                 #Adrian
         self.take_Ticket()
         if self.user_choice == ['Y']:
             print('running pay 4 parking\n')
@@ -91,17 +58,5 @@ class Garage:
         else:
             print("didn't pay, not running either method.")
 
-
-def main():
-    pass  # Runner code to interact with the parking lot system
-
 parking = Garage()
-# parking.take_Ticket()
-# parking.leave_garage()
-#parking.pay_4_parking()
-#print('Switching method to leave garage')5
-
 parking.run_Garage()
-
-if __name__ == "__main__":
-    main()
